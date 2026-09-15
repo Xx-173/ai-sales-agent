@@ -1,0 +1,143 @@
+{
+  "version": "sales-sop-v1",
+  "steps": [
+    {
+      "day": 1,
+      "stage": "trial_welcome",
+      "delivery": "send_template",
+      "templateKey": "welcome_course",
+      "requiresAllTags": []
+    },
+    {
+      "day": 2,
+      "stage": "trial_guidance",
+      "delivery": "send_template",
+      "templateKey": "trial_course_guidance",
+      "requiresAllTags": ["planning_completed"]
+    },
+    {
+      "day": 3,
+      "stage": "trial_interaction",
+      "delivery": "send_template",
+      "templateKey": "trial_interaction",
+      "requiresAllTags": ["replied"]
+    },
+    {
+      "day": 4,
+      "stage": "homework_follow_up",
+      "delivery": "send_template",
+      "templateKey": "homework_review_prompt",
+      "requiresAllTags": ["homework_submitted"]
+    },
+    {
+      "day": 5,
+      "stage": "trial_summary",
+      "delivery": "send_template",
+      "templateKey": "trial_summary",
+      "requiresAllTags": []
+    },
+    {
+      "day": 6,
+      "stage": "extra_course_open",
+      "delivery": "send_template",
+      "templateKey": "extra_course_open",
+      "requiresAllTags": []
+    },
+    {
+      "day": 7,
+      "stage": "extra_course_interaction",
+      "delivery": "send_template",
+      "templateKey": "extra_course_interaction",
+      "requiresAllTags": ["replied"]
+    },
+    {
+      "day": 8,
+      "stage": "value_reinforcement",
+      "delivery": "send_template",
+      "templateKey": "value_reinforcement",
+      "requiresAllTags": []
+    },
+    {
+      "day": 9,
+      "stage": "need_exploration",
+      "delivery": "send_template",
+      "templateKey": "need_exploration",
+      "requiresAllTags": ["high_activity"]
+    },
+    {
+      "day": 10,
+      "stage": "conversion_consultation",
+      "delivery": "handoff",
+      "requiresAllTags": []
+    },
+    {
+      "day": 11,
+      "stage": "ongoing_value",
+      "delivery": "send_template",
+      "templateKey": "ongoing_value",
+      "requiresAllTags": []
+    },
+    {
+      "day": 12,
+      "stage": "ongoing_value",
+      "delivery": "send_template",
+      "templateKey": "ongoing_value",
+      "requiresAllTags": []
+    },
+    {
+      "day": 13,
+      "stage": "low_frequency_care",
+      "delivery": "send_template",
+      "templateKey": "low_frequency_care",
+      "requiresAllTags": []
+    },
+    {
+      "day": 14,
+      "stage": "low_frequency_care",
+      "delivery": "send_template",
+      "templateKey": "low_frequency_care",
+      "requiresAllTags": []
+    },
+    {
+      "day": 15,
+      "stage": "low_frequency_care",
+      "delivery": "send_template",
+      "templateKey": "low_frequency_care",
+      "requiresAllTags": []
+    },
+    {
+      "day": 16,
+      "stage": "reactivation",
+      "delivery": "send_template",
+      "templateKey": "reactivation",
+      "requiresAllTags": ["silent_7d"]
+    },
+    {
+      "day": 17,
+      "stage": "reactivation",
+      "delivery": "send_template",
+      "templateKey": "reactivation",
+      "requiresAllTags": ["silent_7d"]
+    },
+    {
+      "day": 18,
+      "stage": "reactivation",
+      "delivery": "send_template",
+      "templateKey": "reactivation",
+      "requiresAllTags": ["silent_7d"]
+    },
+    {
+      "day": 19,
+      "stage": "renewal_summary",
+      "delivery": "send_template",
+      "templateKey": "renewal_summary",
+      "requiresAllTags": []
+    },
+    {
+      "day": 20,
+      "stage": "renewal_consultation",
+      "delivery": "handoff",
+      "requiresAllTags": []
+    }
+  ]
+}

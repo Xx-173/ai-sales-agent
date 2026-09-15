@@ -1,0 +1,10 @@
+{
+  "name": "ai-sales-agent-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Electron Desktop Shell for AI Sales Agent, built on SalesClaw",
+  "main": "dist/main.cjs",
+  "author": "Xx-173",
+  "license": "MIT",
+  "homepage": "https://github.com/Xx-173/ai-sales-agent#readme"
+}

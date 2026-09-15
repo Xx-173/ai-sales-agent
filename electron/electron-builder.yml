@@ -1,0 +1,35 @@
+appId: com.xx173.aisalesagent.desktop
+productName: AI Sales Agent
+copyright: Copyright © 2026 AI Sales Agent contributors
+electronVersion: 39.8.10
+icon: assets/salesclaw-icon.png
+
+directories:
+  output: release
+
+files:
+  - dist/**/*
+  - assets/**/*
+  - package.json
+  - '!**/*.map'
+
+extraMetadata:
+  main: dist/main.cjs
+
+asar: true
+
+mac:
+  category: public.app-category.productivity
+  icon: assets/salesclaw.icns
+  target:
+    - dmg
+    - zip
+
+win:
+  target:
+    - nsis
+
+linux:
+  category: Utility
+  target:
+    - AppImage
