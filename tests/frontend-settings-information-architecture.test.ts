@@ -15,7 +15,7 @@ describe('settings information architecture', () => {
     expect(nav).toContain("label: '账户设置'");
     expect(nav).toContain("label: '系统配置'");
     expect(nav).toContain("label: '管理后台'");
-    expect(nav).toContain("label: '关于 Miniclaw'");
+    expect(nav).toContain("label: '关于 SalesClaw'");
     expect(nav).toContain("key: 'my-channels'");
     expect(nav).toContain("key: 'security'");
     expect(nav).toContain("key: 'main-agent'");
@@ -173,7 +173,7 @@ describe('settings information architecture', () => {
     );
 
     expect(settings).toContain('<MainAgentCapabilitiesSection />');
-    expect(mainCapabilities).toMatch(/Miniclaw 用户 Skills|Miniclaw MCP/);
+    expect(mainCapabilities).toMatch(/SalesClaw 用户 Skills|SalesClaw MCP/);
     expect(mainCapabilities).not.toContain('工具与扩展能力边界');
     expect(mainCapabilities).toContain('/api/agent-profiles/');
     expect(workspaceEnv).toMatch(/Provider\s+地址和凭据由系统管理员统一管理/);

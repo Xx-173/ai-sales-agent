@@ -155,11 +155,11 @@ RUN set -eu; \
     pip install --no-cache-dir --upgrade "$HEADROOM_SPEC"; \
     python3 -c "from importlib.metadata import version; print('headroom-ai', version('headroom-ai'))"
 
-# Pin the feishu-cli release used by the image so both native builders resolve
-# the same immutable assets. An exact vX.Y.Z tag can be supplied through
-# FEISHU_CLI_VERSION when deliberately upgrading or rolling back the CLI.
+# Resolve the newest stable feishu-cli GitHub release by default, then verify
+# the selected archive against the checksums file published with that release.
+# An exact vX.Y.Z tag can be supplied through FEISHU_CLI_VERSION for rollback.
 ARG TARGETARCH
-ARG FEISHU_CLI_VERSION=v1.40.0
+ARG FEISHU_CLI_VERSION=latest
 RUN set -eu && \
     ARCH="${TARGETARCH:-$(dpkg --print-architecture)}" && \
     case "$ARCH" in \
@@ -184,6 +184,12 @@ RUN set -eu && \
     else \
       RELEASE_TAG="$FEISHU_CLI_VERSION"; \
       ARCHIVE="feishu-cli_${RELEASE_TAG}_linux-${ARCH}.tar.gz"; \
+    fi && \
+    # Download the resolved immutable tag rather than the moving latest asset
+    # endpoint; the latter can briefly return 404 for one architecture while
+    # its checksum file is already available.
+    if [ "$FEISHU_CLI_VERSION" = latest ]; then \
+      RELEASE_URL="https://github.com/riba2534/feishu-cli/releases/download/${RELEASE_TAG}"; \
     fi && \
     echo "Installing feishu-cli $RELEASE_TAG for $ARCH" && \
     curl -fsSL --retry 3 \

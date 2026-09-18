@@ -189,7 +189,7 @@ describe('/api/usage contract and isolation', () => {
     expect(body.daily).toEqual([]);
   });
 
-  test('main Miniclaw attribution has a filterable stable sentinel', async () => {
+  test('main SalesClaw attribution has a filterable stable sentinel', async () => {
     process.env.USAGE_TEST_USER = 'main-user';
     process.env.USAGE_TEST_ROLE = 'member';
     const stats = await usage.request(
@@ -198,7 +198,7 @@ describe('/api/usage contract and isolation', () => {
     const body = await stats.json();
     expect(body.summary.runCount).toBe(1);
     expect(body.attributions.agents).toEqual([
-      expect.objectContaining({ key: '__main__', name: 'Miniclaw' }),
+      expect.objectContaining({ key: '__main__', name: 'SalesClaw' }),
     ]);
   });
 
