@@ -70,7 +70,7 @@ describe('AgentProfile DB model', () => {
 
     expect(profiles).toHaveLength(1);
     expect(profiles[0].is_default).toBe(true);
-    expect(profiles[0].name).toBe('Miniclaw');
+    expect(profiles[0].name).toBe('SalesClaw');
     expect(profiles[0].identity_prompt).toBe('');
     expect(profiles[0].include_claude_preset).toBe(true);
     expect(profiles[0].model_config_id).toBeNull();
@@ -85,11 +85,11 @@ describe('AgentProfile DB model', () => {
       mcp: { mode: 'inherit', ids: [] },
     });
     expect(profiles[0].identity_hash).toBe(
-      computeAgentProfileIdentityHash('', true, undefined, 'Miniclaw'),
+      computeAgentProfileIdentityHash('', true, undefined, 'SalesClaw'),
     );
   });
 
-  test('persists admin Miniclaw as managed; global host policy is resolved at runtime', () => {
+  test('persists admin SalesClaw as managed; global host policy is resolved at runtime', () => {
     const userId = 'agent-profile-admin-context';
     seedUser(userId, 'admin');
 
@@ -154,7 +154,7 @@ describe('AgentProfile DB model', () => {
     expect(legacy?.name).toBe('Default Agent');
 
     const migrated = listAgentProfilesForUser(userId)[0];
-    expect(migrated.name).toBe('Miniclaw');
+    expect(migrated.name).toBe('SalesClaw');
     expect(migrated.version).toBe((legacy?.version ?? 0) + 1);
     expect(listAgentProfilePromptVersions(migrated.id, userId)).toHaveLength(1);
     expect(migrated.identity_hash).toBe(
@@ -162,7 +162,7 @@ describe('AgentProfile DB model', () => {
         migrated.identity_prompt,
         migrated.include_claude_preset,
         migrated.runtime_policy,
-        'Miniclaw',
+        'SalesClaw',
       ),
     );
 
@@ -252,7 +252,7 @@ describe('AgentProfile DB model', () => {
 
     expect(getWorkspaceAgentProfileId(home.folder)).toBe(builtIn.id);
     expect(() => assignWorkspaceAgentProfile(home.folder, custom.id)).toThrow(
-      'Home Workspace must remain bound to the built-in Miniclaw Agent',
+      'Home Workspace must remain bound to the built-in SalesClaw Agent',
     );
 
     // Simulate a legacy database written before the invariant existed.

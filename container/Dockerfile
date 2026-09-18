@@ -155,11 +155,11 @@ RUN set -eu; \
     pip install --no-cache-dir --upgrade "$HEADROOM_SPEC"; \
     python3 -c "from importlib.metadata import version; print('headroom-ai', version('headroom-ai'))"
 
-# Resolve the newest stable feishu-cli GitHub release by default, then verify
-# the selected archive against the checksums file published with that release.
-# An exact vX.Y.Z tag can be supplied through FEISHU_CLI_VERSION for rollback.
+# Pin the feishu-cli release used by the image so both native builders resolve
+# the same immutable assets. An exact vX.Y.Z tag can be supplied through
+# FEISHU_CLI_VERSION when deliberately upgrading or rolling back the CLI.
 ARG TARGETARCH
-ARG FEISHU_CLI_VERSION=latest
+ARG FEISHU_CLI_VERSION=v1.40.0
 RUN set -eu && \
     ARCH="${TARGETARCH:-$(dpkg --print-architecture)}" && \
     case "$ARCH" in \

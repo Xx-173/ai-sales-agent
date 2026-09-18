@@ -53,9 +53,9 @@ describe('Agent-first frontend product contracts', () => {
     });
   });
 
-  it('shows the legacy built-in Agent name as Miniclaw', () => {
-    expect(getAgentProfileDisplayName('Default Agent')).toBe('Miniclaw');
-    expect(getAgentProfileDisplayName(undefined)).toBe('Miniclaw');
+  it('shows the legacy built-in Agent name as SalesClaw', () => {
+    expect(getAgentProfileDisplayName('Default Agent')).toBe('SalesClaw');
+    expect(getAgentProfileDisplayName(undefined)).toBe('SalesClaw');
     expect(getAgentProfileDisplayName('代码审查员')).toBe('代码审查员');
   });
 
