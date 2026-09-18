@@ -14,7 +14,9 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/ai-sales-agent
+  # GHCR image references must be lowercase. The GitHub account is displayed
+  # as Xx-173, so keep the normalized registry namespace here explicitly.
+  IMAGE_NAME: ghcr.io/xx-173/ai-sales-agent
 
 jobs:
   build-and-smoke:
